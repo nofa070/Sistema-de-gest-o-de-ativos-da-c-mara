@@ -1,0 +1,243 @@
+\doxysection{src/relatorios.c File Reference}
+\hypertarget{relatorios_8c}{}\label{relatorios_8c}\index{src/relatorios.c@{src/relatorios.c}}
+
+
+Ficheiro que contém funções de relatórios/análises do sistema.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}../include/ativos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/departamentos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ordem.\+h"{}}\newline
+{\ttfamily \#include "{}../include/materiais.\+h"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{relatorios_8c_aeef90365747622a844b90113d5743f5a}{contador\+Por\+Estado}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos, Estado\+Ativo estado\+\_\+ativo)
+\begin{DoxyCompactList}\small\item\em Conta quantos ativos existem num determinado estado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{relatorios_8c_a932a0bc8a692ae2abcdce457f712fa38}{mostrar\+Ranking\+Desempenho}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} tecnicos, \mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Função que exibe o ranking de desempenho dos técnicos de acordo com o número de ordens concluídas. \end{DoxyCompactList}\item 
+\Hypertarget{relatorios_8c_ab1fce6a1a98a3f7af908ed4efb5e8fa5}\label{relatorios_8c_ab1fce6a1a98a3f7af908ed4efb5e8fa5} 
+void {\bfseries listar\+Tecncios\+Ocupados} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\item 
+\Hypertarget{relatorios_8c_a72254b2cc0df09ac19b00265a9b3030e}\label{relatorios_8c_a72254b2cc0df09ac19b00265a9b3030e} 
+void {\bfseries listar\+Tecnicos\+Especialidade} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos, \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}} especialidade, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\item 
+int \mbox{\hyperlink{relatorios_8c_a53a8d8994a035df87bd4fa700cefc294}{contador\+Por\+Categoria}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos, Categoria\+Ativo categoria\+\_\+ativo)
+\begin{DoxyCompactList}\small\item\em Conta quantos ativos existem numa determinada categoria. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{relatorios_8c_ad49845c98b1f225c557de0d5f068d197}{tempo\+Medio\+Resolucao\+Ordens}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Calcula o tempo médio de resolução das ordens concluídas. \end{DoxyCompactList}\item 
+\Hypertarget{relatorios_8c_a082969838bb2ab1296252ab9953d842c}\label{relatorios_8c_a082969838bb2ab1296252ab9953d842c} 
+int {\bfseries procurar\+Indice\+Mais\+Corretivas} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos)
+\item 
+\Hypertarget{relatorios_8c_a6028c7b762ecd46836059394bb866645}\label{relatorios_8c_a6028c7b762ecd46836059394bb866645} 
+char \texorpdfstring{$\ast$}{*} {\bfseries departamentos\+Mais\+Urgentes} (\mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}departamentos, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\item 
+void \mbox{\hyperlink{relatorios_8c_a69e315f90e47e2099bf70084160b37c5}{mostrar\+Relatorio\+Ativos}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos)
+\begin{DoxyCompactList}\small\item\em Mostra o relatório geral de ativos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{relatorios_8c_a36f8d7b4e4e9367cc17f58af628851d4}{mostrar\+Relatorio\+Departamentos}} (\mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}departamentos, \mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Mostra o relatório geral de departamentos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{relatorios_8c_a2c2f5c4f0a335f725ae2cdbe9817538b}{mostrar\+Relatorio\+Tecnicos}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Mostra o relatório geral de técnicos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{relatorios_8c_aecbabc4aa2eeb87aaec00e5dfed5c3db}{mostrar\+Relatorio\+Ordens}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, \mbox{\hyperlink{struct_materiais}{Materiais}} materiais)
+\begin{DoxyCompactList}\small\item\em Mostra o relatório geral das ordens/manutenções. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{relatorios_8c_afc94438d22e9938becd9f28e400cf148}{relatorio\+Ativos\+Instaveis}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos, \mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Mostra um alerta com os ativos que têm muitas ocorrências associadas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{relatorios_8c_afe059b399cdaf2dfd01e369717c8e472}{relatorio\+Problemas\+Por\+Local}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos, \mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Mostra uma análise de incidências agrupada por local. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ficheiro que contém funções de relatórios/análises do sistema. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Alves 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{relatorios_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{relatorios_8c_a53a8d8994a035df87bd4fa700cefc294}\index{relatorios.c@{relatorios.c}!contadorPorCategoria@{contadorPorCategoria}}
+\index{contadorPorCategoria@{contadorPorCategoria}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{contadorPorCategoria()}{contadorPorCategoria()}}
+{\footnotesize\ttfamily \label{relatorios_8c_a53a8d8994a035df87bd4fa700cefc294} 
+int contador\+Por\+Categoria (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{, }\item[{Categoria\+Ativo}]{categoria\+\_\+ativo}{}\end{DoxyParamCaption})}
+
+
+
+Conta quantos ativos existem numa determinada categoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura que contém a lista de ativos. \\
+\hline
+{\em categoria\+\_\+ativo} & Categoria que pretende contar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o número de ativos na categoria indicada. 
+\end{DoxyReturn}
+\Hypertarget{relatorios_8c_aeef90365747622a844b90113d5743f5a}\index{relatorios.c@{relatorios.c}!contadorPorEstado@{contadorPorEstado}}
+\index{contadorPorEstado@{contadorPorEstado}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{contadorPorEstado()}{contadorPorEstado()}}
+{\footnotesize\ttfamily \label{relatorios_8c_aeef90365747622a844b90113d5743f5a} 
+int contador\+Por\+Estado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{, }\item[{Estado\+Ativo}]{estado\+\_\+ativo}{}\end{DoxyParamCaption})}
+
+
+
+Conta quantos ativos existem num determinado estado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura que contém a lista de ativos. \\
+\hline
+{\em estado\+\_\+ativo} & Estado que pretende contar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o número de ativos com o estado indicado. 
+\end{DoxyReturn}
+\Hypertarget{relatorios_8c_a932a0bc8a692ae2abcdce457f712fa38}\index{relatorios.c@{relatorios.c}!mostrarRankingDesempenho@{mostrarRankingDesempenho}}
+\index{mostrarRankingDesempenho@{mostrarRankingDesempenho}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{mostrarRankingDesempenho()}{mostrarRankingDesempenho()}}
+{\footnotesize\ttfamily \label{relatorios_8c_a932a0bc8a692ae2abcdce457f712fa38} 
+void mostrar\+Ranking\+Desempenho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}}]{tecnicos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que exibe o ranking de desempenho dos técnicos de acordo com o número de ordens concluídas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura que contém a lista de tecnicos e contador. \\
+\hline
+{\em ordens} & Estrutura que contém a lista de ordens e contador. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_a69e315f90e47e2099bf70084160b37c5}\index{relatorios.c@{relatorios.c}!mostrarRelatorioAtivos@{mostrarRelatorioAtivos}}
+\index{mostrarRelatorioAtivos@{mostrarRelatorioAtivos}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{mostrarRelatorioAtivos()}{mostrarRelatorioAtivos()}}
+{\footnotesize\ttfamily \label{relatorios_8c_a69e315f90e47e2099bf70084160b37c5} 
+void mostrar\+Relatorio\+Ativos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Mostra o relatório geral de ativos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura com a lista de ativos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_a36f8d7b4e4e9367cc17f58af628851d4}\index{relatorios.c@{relatorios.c}!mostrarRelatorioDepartamentos@{mostrarRelatorioDepartamentos}}
+\index{mostrarRelatorioDepartamentos@{mostrarRelatorioDepartamentos}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{mostrarRelatorioDepartamentos()}{mostrarRelatorioDepartamentos()}}
+{\footnotesize\ttfamily \label{relatorios_8c_a36f8d7b4e4e9367cc17f58af628851d4} 
+void mostrar\+Relatorio\+Departamentos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}}]{departamentos}{, }\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Mostra o relatório geral de departamentos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em departamentos} & Apontador para a estrutura com a lista de departamentos. \\
+\hline
+{\em ativos} & Apontador para a estrutura com a lista de ativos. \\
+\hline
+{\em ordens} & Apontador para a estrutura com a lista de ordens. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_aecbabc4aa2eeb87aaec00e5dfed5c3db}\index{relatorios.c@{relatorios.c}!mostrarRelatorioOrdens@{mostrarRelatorioOrdens}}
+\index{mostrarRelatorioOrdens@{mostrarRelatorioOrdens}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{mostrarRelatorioOrdens()}{mostrarRelatorioOrdens()}}
+{\footnotesize\ttfamily \label{relatorios_8c_aecbabc4aa2eeb87aaec00e5dfed5c3db} 
+void mostrar\+Relatorio\+Ordens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{\mbox{\hyperlink{struct_materiais}{Materiais}}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Mostra o relatório geral das ordens/manutenções. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura com a lista de ordens. \\
+\hline
+{\em materiais} & Estrutura com a lista de materiais. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_a2c2f5c4f0a335f725ae2cdbe9817538b}\index{relatorios.c@{relatorios.c}!mostrarRelatorioTecnicos@{mostrarRelatorioTecnicos}}
+\index{mostrarRelatorioTecnicos@{mostrarRelatorioTecnicos}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{mostrarRelatorioTecnicos()}{mostrarRelatorioTecnicos()}}
+{\footnotesize\ttfamily \label{relatorios_8c_a2c2f5c4f0a335f725ae2cdbe9817538b} 
+void mostrar\+Relatorio\+Tecnicos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}}]{tecnicos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Mostra o relatório geral de técnicos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura com a lista de técnicos. \\
+\hline
+{\em ordens} & Apontador para a estrutura com a lista de ordens. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_afc94438d22e9938becd9f28e400cf148}\index{relatorios.c@{relatorios.c}!relatorioAtivosInstaveis@{relatorioAtivosInstaveis}}
+\index{relatorioAtivosInstaveis@{relatorioAtivosInstaveis}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{relatorioAtivosInstaveis()}{relatorioAtivosInstaveis()}}
+{\footnotesize\ttfamily \label{relatorios_8c_afc94438d22e9938becd9f28e400cf148} 
+void relatorio\+Ativos\+Instaveis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Mostra um alerta com os ativos que têm muitas ocorrências associadas. 
+
+Mostra um alerta de ativos instáveis (com muitas ocorrências).
+
+Percorre os ativos e conta quantas ordens estão associadas a cada um. Se um ativo tiver 5 ou mais ocorrências, é apresentado como "{}instável"{}. 
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura com a lista de ativos. \\
+\hline
+{\em ordens} & Estrutura com a lista de ordens. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_afe059b399cdaf2dfd01e369717c8e472}\index{relatorios.c@{relatorios.c}!relatorioProblemasPorLocal@{relatorioProblemasPorLocal}}
+\index{relatorioProblemasPorLocal@{relatorioProblemasPorLocal}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{relatorioProblemasPorLocal()}{relatorioProblemasPorLocal()}}
+{\footnotesize\ttfamily \label{relatorios_8c_afe059b399cdaf2dfd01e369717c8e472} 
+void relatorio\+Problemas\+Por\+Local (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Mostra uma análise de incidências agrupada por local. 
+
+Mostra uma análise de incidências por local.
+
+Para cada ativo, conta quantas ordens existem e soma o total no local do ativo. No fim apresenta o número de ordens por local. 
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura com a lista de ativos. \\
+\hline
+{\em ordens} & Estrutura com a lista de ordens. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{relatorios_8c_ad49845c98b1f225c557de0d5f068d197}\index{relatorios.c@{relatorios.c}!tempoMedioResolucaoOrdens@{tempoMedioResolucaoOrdens}}
+\index{tempoMedioResolucaoOrdens@{tempoMedioResolucaoOrdens}!relatorios.c@{relatorios.c}}
+\doxysubsubsection{\texorpdfstring{tempoMedioResolucaoOrdens()}{tempoMedioResolucaoOrdens()}}
+{\footnotesize\ttfamily \label{relatorios_8c_ad49845c98b1f225c557de0d5f068d197} 
+float tempo\+Medio\+Resolucao\+Ordens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Calcula o tempo médio de resolução das ordens concluídas. 
+
+A função calcula a diferença (em segundos) entre a data/hora de início e fim de cada ordem concluída e devolve a média. 
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura que contém as ordens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o tempo médio (em segundos). Caso não existam ordens concluídas retorna 0. 
+\end{DoxyReturn}

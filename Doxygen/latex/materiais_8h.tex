@@ -1,0 +1,112 @@
+\doxysection{include/materiais.h File Reference}
+\hypertarget{materiais_8h}{}\label{materiais_8h}\index{include/materiais.h@{include/materiais.h}}
+
+
+Header com as estruturas e protótipos do módulo de gestão de materiais.  
+
+
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_material}{Material}}
+\item 
+struct \mbox{\hyperlink{struct_materiais}{Materiais}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{materiais_8h_ab8e4fafcc64ca4e21f2dd99b7f10cd4b}{adicionar\+\_\+materiais}} (\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}materiais, int idx)
+\begin{DoxyCompactList}\small\item\em Adiciona um material associado a uma ordem/manutenção. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{materiais_8h_abf7e8b7a51f531480b34e79c77faab11}{guardar\+Materiais}} (\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}materiais)
+\begin{DoxyCompactList}\small\item\em Guarda os materiais num ficheiro binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{materiais_8h_aa1be58e176de44d01d290dec24bf1588}{carregar\+Materiais}} (\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}materiais)
+\begin{DoxyCompactList}\small\item\em Carrega os materiais a partir de um ficheiro binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header com as estruturas e protótipos do módulo de gestão de materiais. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Alves 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{materiais_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{materiais_8h_ab8e4fafcc64ca4e21f2dd99b7f10cd4b}\index{materiais.h@{materiais.h}!adicionar\_materiais@{adicionar\_materiais}}
+\index{adicionar\_materiais@{adicionar\_materiais}!materiais.h@{materiais.h}}
+\doxysubsubsection{\texorpdfstring{adicionar\_materiais()}{adicionar\_materiais()}}
+{\footnotesize\ttfamily \label{materiais_8h_ab8e4fafcc64ca4e21f2dd99b7f10cd4b} 
+void adicionar\+\_\+materiais (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}}]{materiais}{, }\item[{int}]{idx}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona um material associado a uma ordem/manutenção. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em materiais} & Apontador para a estrutura com a lista de materiais. \\
+\hline
+{\em idx} & ID da ordem que será associada ao material.\\
+\hline
+\end{DoxyParams}
+Adiciona um material associado a uma ordem/manutenção.
+
+
+\begin{DoxyParams}{Parameters}
+{\em materiais} & Apontador para a estrutura que contém a lista de materiais e contador. \\
+\hline
+{\em idx} & ID da ordem que será associada a este material. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Esta função utiliza funções como ler\+Sring\+Dinamica() e \doxylink{input_8h_ad31e009e63e5bee476a8d18ad25e67cf}{obter\+Int\+Positivo()} para ler strings e valores int. 
+\end{DoxyNote}
+\Hypertarget{materiais_8h_aa1be58e176de44d01d290dec24bf1588}\index{materiais.h@{materiais.h}!carregarMateriais@{carregarMateriais}}
+\index{carregarMateriais@{carregarMateriais}!materiais.h@{materiais.h}}
+\doxysubsubsection{\texorpdfstring{carregarMateriais()}{carregarMateriais()}}
+{\footnotesize\ttfamily \label{materiais_8h_aa1be58e176de44d01d290dec24bf1588} 
+void carregar\+Materiais (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Carrega os materiais a partir de um ficheiro binário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em materiais} & Apontador para a estrutura com a lista de materiais.\\
+\hline
+\end{DoxyParams}
+Carrega os materiais a partir de um ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em materiais} & Apontador para a estrutura com as informações que serão guardadas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+A função utiliza malloc pelo que será necessário posteriormente libertar a memória heap. 
+\end{DoxyWarning}
+\Hypertarget{materiais_8h_abf7e8b7a51f531480b34e79c77faab11}\index{materiais.h@{materiais.h}!guardarMateriais@{guardarMateriais}}
+\index{guardarMateriais@{guardarMateriais}!materiais.h@{materiais.h}}
+\doxysubsubsection{\texorpdfstring{guardarMateriais()}{guardarMateriais()}}
+{\footnotesize\ttfamily \label{materiais_8h_abf7e8b7a51f531480b34e79c77faab11} 
+void guardar\+Materiais (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Guarda os materiais num ficheiro binário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em materiais} & Apontador para a estrutura com a lista de materiais.\\
+\hline
+\end{DoxyParams}
+Guarda os materiais num ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em materiais} & Apontador para a estrutura que contém as informações que serão escritas no ficheiro. \\
+\hline
+\end{DoxyParams}

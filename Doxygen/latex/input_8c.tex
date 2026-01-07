@@ -1,0 +1,244 @@
+\doxysection{src/input.c File Reference}
+\hypertarget{input_8c}{}\label{input_8c}\index{src/input.c@{src/input.c}}
+
+
+ficheiro que contém funções que permitem a leitura dos dados do stdin.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{input_8c_a7dac90953bf2709d6153d7503fe3c77e}\label{input_8c_a7dac90953bf2709d6153d7503fe3c77e} 
+\#define {\bfseries VALOR\+\_\+\+INVALIDO}~"{}O valor inserido e invalido."{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{input_8c_ad31e009e63e5bee476a8d18ad25e67cf}{obter\+Int\+Positivo}} (char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Função que solicita ao user um valor inteiro positivo. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{input_8c_ae68bf632cc6d8d808aa4d8c4ba53f9d4}{obter\+Float\+Positivo}} (char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Função que solicita um valor float positivo ao user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_8c_a8deaff72b3466f323d5ffe40426e1ea1}{ler\+String}} (char \texorpdfstring{$\ast$}{*}string, unsigned int tamanho, char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Lê uma string para um buffer com tamanho máximo. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{input_8c_a8045d87d4ccc659d92121002708d8e65}{ler\+String\+Dinamica}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Lê uma string do teclado com alocação dinâmica de memória. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_8c_a038f276fcda2d6afe67756134e2682ef}{ler\+Nome\+Valido}} (char \texorpdfstring{$\ast$}{*}string, unsigned int tamanho, char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Lê e valida o nome de uma entidade (Técnico ou Responsável). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_8c_a5653b0ebb88add5b541302910080007d}{pausar\+\_\+ecra}} (void)
+\begin{DoxyCompactList}\small\item\em Interrompe a execução do programa até que o utilizador prima a tecla Enter. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{input_8c_ad69f2e2826200047336e4ad4b7c19cbc}{obter\+Int\+Intervalado}} (int min\+Valor, int max\+Valor, char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Função que pede um valor intervalado ao user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_8c_a383f1e5a8c2a346c8292f72bbd7c5350}{escrever\+String\+Binario}} (char \texorpdfstring{$\ast$}{*}str, FILE \texorpdfstring{$\ast$}{*}fp)
+\begin{DoxyCompactList}\small\item\em Grava uma string dinâmicanum ficheiro binário. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{input_8c_ac13d9cb927986287809fe01b76730c72}{ler\+String\+Binario}} (FILE \texorpdfstring{$\ast$}{*}fp)
+\begin{DoxyCompactList}\small\item\em Lê a string de um ficheiro binário e aloca a memória necessária. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ficheiro que contém funções que permitem a leitura dos dados do stdin. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Alves 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{input_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{input_8c_a383f1e5a8c2a346c8292f72bbd7c5350}\index{input.c@{input.c}!escreverStringBinario@{escreverStringBinario}}
+\index{escreverStringBinario@{escreverStringBinario}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{escreverStringBinario()}{escreverStringBinario()}}
+{\footnotesize\ttfamily \label{input_8c_a383f1e5a8c2a346c8292f72bbd7c5350} 
+void escrever\+String\+Binario (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{fp}{}\end{DoxyParamCaption})}
+
+
+
+Grava uma string dinâmicanum ficheiro binário. 
+
+Escreve uma string no ficheiro binário (tamanho + conteúdo).
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Apontador para a string a ser guarada, pode ser NULL. \\
+\hline
+{\em fp} & Apontador para o ficheiro binário aberto em modo de escrita. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{input_8c_a038f276fcda2d6afe67756134e2682ef}\index{input.c@{input.c}!lerNomeValido@{lerNomeValido}}
+\index{lerNomeValido@{lerNomeValido}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{lerNomeValido()}{lerNomeValido()}}
+{\footnotesize\ttfamily \label{input_8c_a038f276fcda2d6afe67756134e2682ef} 
+void ler\+Nome\+Valido (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string}{, }\item[{unsigned int}]{tamanho}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Lê e valida o nome de uma entidade (Técnico ou Responsável). 
+
+Lê e valida um nome (sem números, primeira letra maiúscula, etc.).
+
+Garante que o nome cumpre três regras de validação\+: ter no mínimo 3 caracteres, começar com letra maiúscula e não conter algarismos. Repete a leitura até que todas as condições sejam satisfeitas. 
+\begin{DoxyParams}{Parameters}
+{\em string} & Apontador para o buffer onde o nome será armazenado. \\
+\hline
+{\em tamanho} & Tamanho máximo do buffer (limite da string). \\
+\hline
+{\em msg} & Mensagem a exibir ao utilizador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Esta função cumpre os requisitos de validação de dados e proteção contra entradas inválidas exigidos pelo projeto. 
+\end{DoxyNote}
+\Hypertarget{input_8c_a8deaff72b3466f323d5ffe40426e1ea1}\index{input.c@{input.c}!lerString@{lerString}}
+\index{lerString@{lerString}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{lerString()}{lerString()}}
+{\footnotesize\ttfamily \label{input_8c_a8deaff72b3466f323d5ffe40426e1ea1} 
+void ler\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string}{, }\item[{unsigned int}]{tamanho}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Lê uma string para um buffer com tamanho máximo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Apontador para a farse lida. \\
+\hline
+{\em tamanho} & Tamanho máximo da frase a ser lida. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+O tamanho da frase tem de ter em conta o espaço do caracter de término da string (\textquotesingle{}\textbackslash{}0\textquotesingle{}) 
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Mensagem a ser mostrada ao user. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{input_8c_ac13d9cb927986287809fe01b76730c72}\index{input.c@{input.c}!lerStringBinario@{lerStringBinario}}
+\index{lerStringBinario@{lerStringBinario}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{lerStringBinario()}{lerStringBinario()}}
+{\footnotesize\ttfamily \label{input_8c_ac13d9cb927986287809fe01b76730c72} 
+char \texorpdfstring{$\ast$}{*} ler\+String\+Binario (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fp}{}\end{DoxyParamCaption})}
+
+
+
+Lê a string de um ficheiro binário e aloca a memória necessária. 
+
+Lê uma string de um ficheiro binário (tamanho + conteúdo).
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & Apontador para o ficheiro binário aberto em modo de leitura. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um apontador para a string alocada ou NULL se a string for vazia ou a alocação falhar. 
+\end{DoxyReturn}
+\Hypertarget{input_8c_a8045d87d4ccc659d92121002708d8e65}\index{input.c@{input.c}!lerStringDinamica@{lerStringDinamica}}
+\index{lerStringDinamica@{lerStringDinamica}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{lerStringDinamica()}{lerStringDinamica()}}
+{\footnotesize\ttfamily \label{input_8c_a8045d87d4ccc659d92121002708d8e65} 
+char \texorpdfstring{$\ast$}{*} ler\+String\+Dinamica (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Lê uma string do teclado com alocação dinâmica de memória. 
+
+Lê uma string com alocação dinâmica.
+
+Implementa um buffer expansível que cresce conforme a necessidade do utilizador, garantindo que não existam limites artificiais para o tamanho do texto introduzido. Utiliza a técnica de duplicação de capacidade (realloc) para otimizar o desempenho. 
+\begin{DoxyParams}{Parameters}
+{\em msg} & Mensagem a exibir ao utilizador antes da leitura. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um apontador (char\texorpdfstring{$\ast$}{*}) para a string lida na Heap. O utilizador deve libertar mais tarde (free) esta memória. 
+\end{DoxyReturn}
+\Hypertarget{input_8c_ae68bf632cc6d8d808aa4d8c4ba53f9d4}\index{input.c@{input.c}!obterFloatPositivo@{obterFloatPositivo}}
+\index{obterFloatPositivo@{obterFloatPositivo}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{obterFloatPositivo()}{obterFloatPositivo()}}
+{\footnotesize\ttfamily \label{input_8c_ae68bf632cc6d8d808aa4d8c4ba53f9d4} 
+float obter\+Float\+Positivo (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Função que solicita um valor float positivo ao user. 
+
+Solicita um float positivo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Mensagem a mostrar ao user \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor inserido pelo user 
+\end{DoxyReturn}
+\Hypertarget{input_8c_ad69f2e2826200047336e4ad4b7c19cbc}\index{input.c@{input.c}!obterIntIntervalado@{obterIntIntervalado}}
+\index{obterIntIntervalado@{obterIntIntervalado}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{obterIntIntervalado()}{obterIntIntervalado()}}
+{\footnotesize\ttfamily \label{input_8c_ad69f2e2826200047336e4ad4b7c19cbc} 
+int obter\+Int\+Intervalado (\begin{DoxyParamCaption}\item[{int}]{min\+Valor}{, }\item[{int}]{max\+Valor}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Função que pede um valor intervalado ao user. 
+
+Solicita um inteiro dentro de um intervalo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Valor} & Valor int minimo que poderá ser introduzido. \\
+\hline
+{\em max\+Valor} & Valor int máximo que poderá ser introduzido. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Os valores máximo e mínimos devem ser introduzidos manualmente pelo programador. A função é normalmente usada para quando existem várias opções num menu, ou a meio de uma função. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Mensagem a mostrar ao user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor introduzido pelo user. 
+\end{DoxyReturn}
+\Hypertarget{input_8c_ad31e009e63e5bee476a8d18ad25e67cf}\index{input.c@{input.c}!obterIntPositivo@{obterIntPositivo}}
+\index{obterIntPositivo@{obterIntPositivo}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{obterIntPositivo()}{obterIntPositivo()}}
+{\footnotesize\ttfamily \label{input_8c_ad31e009e63e5bee476a8d18ad25e67cf} 
+int obter\+Int\+Positivo (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{msg}{}\end{DoxyParamCaption})}
+
+
+
+Função que solicita ao user um valor inteiro positivo. 
+
+Solicita ao utilizador um inteiro positivo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & A mensagem a mostrar ao user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor inserido pelo user. 
+\end{DoxyReturn}
+\Hypertarget{input_8c_a5653b0ebb88add5b541302910080007d}\index{input.c@{input.c}!pausar\_ecra@{pausar\_ecra}}
+\index{pausar\_ecra@{pausar\_ecra}!input.c@{input.c}}
+\doxysubsubsection{\texorpdfstring{pausar\_ecra()}{pausar\_ecra()}}
+{\footnotesize\ttfamily \label{input_8c_a5653b0ebb88add5b541302910080007d} 
+void pausar\+\_\+ecra (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Interrompe a execução do programa até que o utilizador prima a tecla Enter. 
+
+Pausa o ecrã à espera que o utilizador carregue numa tecla.
+
+Esta função é utilizada para pausar a interface após a exibição de mensagens, listagens ou relatórios, garantindo que o utilizador tenha tempo de ler a informação antes do menu seguinte ser carregado. \begin{DoxyNote}{Note}
+Limpa o buffer de entrada para evitar que caracteres residuais de leituras anteriores ignorem a pausa. 
+\end{DoxyNote}

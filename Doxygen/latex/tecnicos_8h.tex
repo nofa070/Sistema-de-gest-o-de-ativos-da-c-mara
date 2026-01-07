@@ -1,0 +1,379 @@
+\doxysection{include/tecnicos.h File Reference}
+\hypertarget{tecnicos_8h}{}\label{tecnicos_8h}\index{include/tecnicos.h@{include/tecnicos.h}}
+
+
+Header com as estruturas e protótipos do módulo de gestão de técnicos.  
+
+
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_tecnico}{Tecnico}}
+\begin{DoxyCompactList}\small\item\em Estrutura que representa um técnico. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_tecnicos}{Tecnicos}}
+\begin{DoxyCompactList}\small\item\em Estrutura que representa a lista de técnicos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}} \{ \newline
+\mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efab3ed58edd8fc786f50b872bd2f67192c}{TECNICO\+\_\+\+TI}} = 1
+, \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efacb8099ca3aa50497082d5e8a6fe3485d}{MECANICO}}
+, \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efabd8da56aebce87c8c1f43cb8fd6963c2}{ELETRICISTA}}
+, \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa9b46ae5f12896fa43286f18c809ef7a5}{MANUTENCAO\+\_\+\+GERAL}}
+, \newline
+\mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa6c655fc59587193233ac4b65ad5df6c3}{OUTROS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Especialidades dos técnicos. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{Estado\+Tecnico}} \{ \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5eac0c32acedf6e31f569c5feee4ea9b00e}{ATIVO1}}
+, \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea1de81fd48155032fd7f96bf703c37b38}{OCUPADO}}
+, \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea821b844e00c127cb4b24d7f74820ac51}{INATIVO1}}
+ \}
+\begin{DoxyCompactList}\small\item\em Estados possíveis para um técnico. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tecnicos_8h_aaf58e66e623f534d7172d62b94704a75}{criar\+\_\+tecnico}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos)
+\begin{DoxyCompactList}\small\item\em Cria um novo técnico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tecnicos_8h_a81de8d31089003bae6ba8700da1517a0}{listar\+\_\+tecnicos}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} tecnicos)
+\begin{DoxyCompactList}\small\item\em Lista os técnicos registados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tecnicos_8h_a9838744097be23bdb3c50851519de611}{desativar\+\_\+tecnico}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} tecnicos)
+\begin{DoxyCompactList}\small\item\em Desativa um técnico (marca como INATIVO1). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tecnicos_8h_a8f83d0ce583cafac9daf8f6f4e86e297}{procurar\+\_\+tecnico\+\_\+id}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} tecnicos, int id\+Procurado)
+\begin{DoxyCompactList}\small\item\em Procura um técnico pelo ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tecnicos_8h_a7ec008d8d637a3b6aed91e527e9d5683}{guardar\+Tecnicos}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos)
+\begin{DoxyCompactList}\small\item\em Guarda os técnicos num ficheiro binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tecnicos_8h_ab7562ba5892bc69e0c66d832c29fef45}{carregar\+Tecnicos}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos)
+\begin{DoxyCompactList}\small\item\em Carrega os técnicos a partir de um ficheiro binário. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{tecnicos_8h_a1455a6f764136447b6849d261715f207}{obter\+Maior\+IDTecnicos}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} tecnicos)
+\begin{DoxyCompactList}\small\item\em Obtém o maior ID existente na lista de técnicos. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tecnicos_8h_a4b54ff272a476d2b58103afe1d0238f9}{passar\+\_\+int\+\_\+string\+\_\+especialidade}} (\mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}} esp)
+\begin{DoxyCompactList}\small\item\em Converte a especialidade (enum) para texto. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tecnicos_8h_a8ba888a25e3679237182bbcff5281e5c}{passar\+\_\+int\+\_\+string\+\_\+estado}} (\mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{Estado\+Tecnico}} estado\+\_\+tecnico)
+\begin{DoxyCompactList}\small\item\em Converte o estado do técnico (enum) para texto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header com as estruturas e protótipos do módulo de gestão de técnicos. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Alves 
+\end{DoxyAuthor}
+
+
+\label{doc-enum-members}
+\Hypertarget{tecnicos_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}\index{tecnicos.h@{tecnicos.h}!Especialidade@{Especialidade}}
+\index{Especialidade@{Especialidade}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{Especialidade}{Especialidade}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef} 
+enum \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}}}
+
+
+
+Especialidades dos técnicos. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TECNICO\_TI@{TECNICO\_TI}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!TECNICO\_TI@{TECNICO\_TI}}}\Hypertarget{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efab3ed58edd8fc786f50b872bd2f67192c}\label{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efab3ed58edd8fc786f50b872bd2f67192c} 
+TECNICO\+\_\+\+TI&Técnico de TI \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MECANICO@{MECANICO}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!MECANICO@{MECANICO}}}\Hypertarget{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efacb8099ca3aa50497082d5e8a6fe3485d}\label{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efacb8099ca3aa50497082d5e8a6fe3485d} 
+MECANICO&Mecânico \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ELETRICISTA@{ELETRICISTA}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!ELETRICISTA@{ELETRICISTA}}}\Hypertarget{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efabd8da56aebce87c8c1f43cb8fd6963c2}\label{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efabd8da56aebce87c8c1f43cb8fd6963c2} 
+ELETRICISTA&Eletricista \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MANUTENCAO\_GERAL@{MANUTENCAO\_GERAL}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!MANUTENCAO\_GERAL@{MANUTENCAO\_GERAL}}}\Hypertarget{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa9b46ae5f12896fa43286f18c809ef7a5}\label{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa9b46ae5f12896fa43286f18c809ef7a5} 
+MANUTENCAO\+\_\+\+GERAL&Manutenção Geral \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTROS@{OUTROS}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!OUTROS@{OUTROS}}}\Hypertarget{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa6c655fc59587193233ac4b65ad5df6c3}\label{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa6c655fc59587193233ac4b65ad5df6c3} 
+OUTROS&Outras especialidades \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}\index{tecnicos.h@{tecnicos.h}!EstadoTecnico@{EstadoTecnico}}
+\index{EstadoTecnico@{EstadoTecnico}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{EstadoTecnico}{EstadoTecnico}}
+{\footnotesize\ttfamily \label{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e} 
+enum \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{Estado\+Tecnico}}}
+
+
+
+Estados possíveis para um técnico. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATIVO1@{ATIVO1}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!ATIVO1@{ATIVO1}}}\Hypertarget{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5eac0c32acedf6e31f569c5feee4ea9b00e}\label{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5eac0c32acedf6e31f569c5feee4ea9b00e} 
+ATIVO1&Técnico ativo \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OCUPADO@{OCUPADO}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!OCUPADO@{OCUPADO}}}\Hypertarget{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea1de81fd48155032fd7f96bf703c37b38}\label{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea1de81fd48155032fd7f96bf703c37b38} 
+OCUPADO&Técnico ocupado \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INATIVO1@{INATIVO1}!tecnicos.h@{tecnicos.h}}\index{tecnicos.h@{tecnicos.h}!INATIVO1@{INATIVO1}}}\Hypertarget{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea821b844e00c127cb4b24d7f74820ac51}\label{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea821b844e00c127cb4b24d7f74820ac51} 
+INATIVO1&Técnico inativo \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{tecnicos_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{tecnicos_8h_ab7562ba5892bc69e0c66d832c29fef45}\index{tecnicos.h@{tecnicos.h}!carregarTecnicos@{carregarTecnicos}}
+\index{carregarTecnicos@{carregarTecnicos}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{carregarTecnicos()}{carregarTecnicos()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_ab7562ba5892bc69e0c66d832c29fef45} 
+void carregar\+Tecnicos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}}]{tecnicos}{}\end{DoxyParamCaption})}
+
+
+
+Carrega os técnicos a partir de um ficheiro binário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura com a lista de técnicos.\\
+\hline
+\end{DoxyParams}
+Carrega os técnicos a partir de um ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura de técnicos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Caso o ficheiro "{}tecnicos.\+bin"{} não exista, a função termina sem alterar nada. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+A função utiliza malloc para alocar memória para o array de técnicos. 
+\end{DoxyWarning}
+\Hypertarget{tecnicos_8h_aaf58e66e623f534d7172d62b94704a75}\index{tecnicos.h@{tecnicos.h}!criar\_tecnico@{criar\_tecnico}}
+\index{criar\_tecnico@{criar\_tecnico}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{criar\_tecnico()}{criar\_tecnico()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_aaf58e66e623f534d7172d62b94704a75} 
+void criar\+\_\+tecnico (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}}]{tecnicos}{}\end{DoxyParamCaption})}
+
+
+
+Cria um novo técnico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura com a lista de técnicos.\\
+\hline
+\end{DoxyParams}
+Cria um novo técnico.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura de técnicos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+A função lê o nome e a especialidade do técnico, atribui estado ATIVO1 e gera um novo ID. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Esta função incrementa os contadores tecnicos-\/\texorpdfstring{$>$}{>}contador e tecnicos-\/\texorpdfstring{$>$}{>}tecnicos\+Ativos. 
+\end{DoxyWarning}
+\Hypertarget{tecnicos_8h_a9838744097be23bdb3c50851519de611}\index{tecnicos.h@{tecnicos.h}!desativar\_tecnico@{desativar\_tecnico}}
+\index{desativar\_tecnico@{desativar\_tecnico}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{desativar\_tecnico()}{desativar\_tecnico()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a9838744097be23bdb3c50851519de611} 
+void desativar\+\_\+tecnico (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}}]{tecnicos}{}\end{DoxyParamCaption})}
+
+
+
+Desativa um técnico (marca como INATIVO1). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com a lista de técnicos.\\
+\hline
+\end{DoxyParams}
+Desativa um técnico (marca como INATIVO1).
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com o array de técnicos e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+A função pede um ID, valida e depois altera o estado para INATIVO1 caso o utilizador confirme. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+O técnico não é removido do array; apenas é marcado como INATIVO1. 
+\end{DoxyWarning}
+\Hypertarget{tecnicos_8h_a7ec008d8d637a3b6aed91e527e9d5683}\index{tecnicos.h@{tecnicos.h}!guardarTecnicos@{guardarTecnicos}}
+\index{guardarTecnicos@{guardarTecnicos}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{guardarTecnicos()}{guardarTecnicos()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a7ec008d8d637a3b6aed91e527e9d5683} 
+void guardar\+Tecnicos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}}]{tecnicos}{}\end{DoxyParamCaption})}
+
+
+
+Guarda os técnicos num ficheiro binário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura com a lista de técnicos.\\
+\hline
+\end{DoxyParams}
+Guarda os técnicos num ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Apontador para a estrutura de técnicos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Escreve no ficheiro "{}tecnicos.\+bin"{}. Caso o ficheiro não possa ser aberto, a função termina. 
+\end{DoxyWarning}
+\Hypertarget{tecnicos_8h_a81de8d31089003bae6ba8700da1517a0}\index{tecnicos.h@{tecnicos.h}!listar\_tecnicos@{listar\_tecnicos}}
+\index{listar\_tecnicos@{listar\_tecnicos}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{listar\_tecnicos()}{listar\_tecnicos()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a81de8d31089003bae6ba8700da1517a0} 
+void listar\+\_\+tecnicos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}}]{tecnicos}{}\end{DoxyParamCaption})}
+
+
+
+Lista os técnicos registados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com a lista de técnicos.\\
+\hline
+\end{DoxyParams}
+Lista os técnicos registados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com o array de técnicos e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+A listagem é feita via printf. 
+\end{DoxyNote}
+\Hypertarget{tecnicos_8h_a1455a6f764136447b6849d261715f207}\index{tecnicos.h@{tecnicos.h}!obterMaiorIDTecnicos@{obterMaiorIDTecnicos}}
+\index{obterMaiorIDTecnicos@{obterMaiorIDTecnicos}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{obterMaiorIDTecnicos()}{obterMaiorIDTecnicos()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a1455a6f764136447b6849d261715f207} 
+int obter\+Maior\+IDTecnicos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}}]{tecnicos}{}\end{DoxyParamCaption})}
+
+
+
+Obtém o maior ID existente na lista de técnicos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com a lista de técnicos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o maior ID ou 0 caso não existam técnicos.
+\end{DoxyReturn}
+Obtém o maior ID existente na lista de técnicos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com o array de técnicos e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o maior ID registado. Caso não existam técnicos devolve 0. 
+\end{DoxyReturn}
+\Hypertarget{tecnicos_8h_a4b54ff272a476d2b58103afe1d0238f9}\index{tecnicos.h@{tecnicos.h}!passar\_int\_string\_especialidade@{passar\_int\_string\_especialidade}}
+\index{passar\_int\_string\_especialidade@{passar\_int\_string\_especialidade}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{passar\_int\_string\_especialidade()}{passar\_int\_string\_especialidade()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a4b54ff272a476d2b58103afe1d0238f9} 
+const char \texorpdfstring{$\ast$}{*} passar\+\_\+int\+\_\+string\+\_\+especialidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}}}]{esp}{}\end{DoxyParamCaption})}
+
+
+
+Converte a especialidade (enum) para texto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em esp} & \doxylink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna uma string com a especialidade.
+\end{DoxyReturn}
+Converte a especialidade (enum) para texto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em esp} & \doxylink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade} do técnico. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna uma string literal com a descrição da especialidade. 
+\end{DoxyReturn}
+\Hypertarget{tecnicos_8h_a8ba888a25e3679237182bbcff5281e5c}\index{tecnicos.h@{tecnicos.h}!passar\_int\_string\_estado@{passar\_int\_string\_estado}}
+\index{passar\_int\_string\_estado@{passar\_int\_string\_estado}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{passar\_int\_string\_estado()}{passar\_int\_string\_estado()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a8ba888a25e3679237182bbcff5281e5c} 
+const char \texorpdfstring{$\ast$}{*} passar\+\_\+int\+\_\+string\+\_\+estado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{Estado\+Tecnico}}}]{estado\+\_\+tecnico}{}\end{DoxyParamCaption})}
+
+
+
+Converte o estado do técnico (enum) para texto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado\+\_\+tecnico} & Estado do técnico. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna uma string com o estado.
+\end{DoxyReturn}
+Converte o estado do técnico (enum) para texto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com o array de técnicos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna uma string literal com a descrição do estado. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+A função utiliza o estado do primeiro elemento (tecnicos.\+tecnico-\/\texorpdfstring{$>$}{>}estado\+\_\+tecnico). 
+\end{DoxyNote}
+\Hypertarget{tecnicos_8h_a8f83d0ce583cafac9daf8f6f4e86e297}\index{tecnicos.h@{tecnicos.h}!procurar\_tecnico\_id@{procurar\_tecnico\_id}}
+\index{procurar\_tecnico\_id@{procurar\_tecnico\_id}!tecnicos.h@{tecnicos.h}}
+\doxysubsubsection{\texorpdfstring{procurar\_tecnico\_id()}{procurar\_tecnico\_id()}}
+{\footnotesize\ttfamily \label{tecnicos_8h_a8f83d0ce583cafac9daf8f6f4e86e297} 
+int procurar\+\_\+tecnico\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}}]{tecnicos}{, }\item[{int}]{id\+Procurado}{}\end{DoxyParamCaption})}
+
+
+
+Procura um técnico pelo ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com a lista de técnicos. \\
+\hline
+{\em id\+Procurado} & ID a procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o índice do técnico no array ou -\/1 caso não encontre.
+\end{DoxyReturn}
+Procura um técnico pelo ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com o array de técnicos e contador. \\
+\hline
+{\em id\+Procurado} & ID que o utilizador pretende procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o índice do técnico no array caso seja encontrado, caso contrário retorna -\/1. 
+\end{DoxyReturn}

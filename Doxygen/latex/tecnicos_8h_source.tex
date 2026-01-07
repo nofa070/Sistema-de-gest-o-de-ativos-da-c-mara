@@ -1,0 +1,59 @@
+\doxysection{tecnicos.\+h}
+\hypertarget{tecnicos_8h_source}{}\label{tecnicos_8h_source}\index{include/tecnicos.h@{include/tecnicos.h}}
+\mbox{\hyperlink{tecnicos_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ TECNICOS\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ TECNICOS\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efab3ed58edd8fc786f50b872bd2f67192c}{TECNICO\_TI}}\ =\ 1,\ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efacb8099ca3aa50497082d5e8a6fe3485d}{MECANICO}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efabd8da56aebce87c8c1f43cb8fd6963c2}{ELETRICISTA}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa9b46ae5f12896fa43286f18c809ef7a5}{MANUTENCAO\_GERAL}},\ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669efa6c655fc59587193233ac4b65ad5df6c3}{OUTROS}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \}\mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5eac0c32acedf6e31f569c5feee4ea9b00e}{ATIVO1}},\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea1de81fd48155032fd7f96bf703c37b38}{OCUPADO}},\ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5ea821b844e00c127cb4b24d7f74820ac51}{INATIVO1}}\ \ \ \ }
+\DoxyCodeLine{00028\ \}\mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{EstadoTecnico}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_tecnico_a1a0493ad9c074a72603d57a79e708c08}{idTecnico}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{struct_tecnico_ae2a0f66178bb1c4d42e2b70ec9426ccb}{nome}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}}\ \mbox{\hyperlink{struct_tecnico_a7e573b17a347759499786ac0e5882382}{especialidade}};\ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{EstadoTecnico}}\ \mbox{\hyperlink{struct_tecnico_a1da2e35ad9a73f0816ec6ff33c00a595}{estado\_tecnico}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_tecnico_a4f172a2864973364b5bbf06dd1ad3951}{idManutencaoAssociado}};\ \ \ \ }
+\DoxyCodeLine{00039\ \}\mbox{\hyperlink{struct_tecnico}{Tecnico}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{struct_tecnico}{Tecnico}}\ *\mbox{\hyperlink{struct_tecnicos_a0a5e5a321ff580d53075dfd108bf3e90}{tecnico}};\ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_tecnicos_a2c6a3fb7cddd9bd7254692264962b5b3}{contador}};\ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_tecnicos_a32260249afe2d18211370eea2ddf71a8}{tecnicosAtivos}};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_tecnicos_a0593b4e73c1b314bfb970fc64166e597}{capacidade}};\ \ \ \ }
+\DoxyCodeLine{00049\ \}\mbox{\hyperlink{struct_tecnicos}{Tecnicos}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tecnicos_8h_aaf58e66e623f534d7172d62b94704a75}{criar\_tecnico}}\ (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ *tecnicos);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tecnicos_8h_a81de8d31089003bae6ba8700da1517a0}{listar\_tecnicos}}\ (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ tecnicos);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tecnicos_8h_a9838744097be23bdb3c50851519de611}{desativar\_tecnico}}\ (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ tecnicos);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tecnicos_8h_a8f83d0ce583cafac9daf8f6f4e86e297}{procurar\_tecnico\_id}}\ (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ tecnicos,\ \textcolor{keywordtype}{int}\ idProcurado);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tecnicos_8h_a7ec008d8d637a3b6aed91e527e9d5683}{guardarTecnicos}}(\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ *tecnicos);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tecnicos_8h_ab7562ba5892bc69e0c66d832c29fef45}{carregarTecnicos}}(\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ *tecnicos);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tecnicos_8h_a1455a6f764136447b6849d261715f207}{obterMaiorIDTecnicos}}(\mbox{\hyperlink{struct_tecnicos}{Tecnicos}}\ tecnicos);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{tecnicos_8h_a4b54ff272a476d2b58103afe1d0238f9}{passar\_int\_string\_especialidade}}(\mbox{\hyperlink{tecnicos_8h_a87929a91a02f20fd7fcbbdcfce4669ef}{Especialidade}}\ esp);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{tecnicos_8h_a8ba888a25e3679237182bbcff5281e5c}{passar\_int\_string\_estado}}\ (\mbox{\hyperlink{tecnicos_8h_ab0262d210ebfe76ee65e4e4338cfde5e}{EstadoTecnico}}\ estado\_tecnico);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TECNICOS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

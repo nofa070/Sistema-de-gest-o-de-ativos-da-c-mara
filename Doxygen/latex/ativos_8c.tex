@@ -1,0 +1,277 @@
+\doxysection{src/ativos.c File Reference}
+\hypertarget{ativos_8c}{}\label{ativos_8c}\index{src/ativos.c@{src/ativos.c}}
+
+
+Ficheiro que contém funções de gestão de ativos.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}../include/departamentos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ativos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/input.\+h"{}}\newline
+{\ttfamily \#include "{}../include/logs.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{ativos_8c_aadc8e4402c580e1c721bb11f5c99faf6}\label{ativos_8c_aadc8e4402c580e1c721bb11f5c99faf6} 
+\#define {\bfseries CRESCIMENTO\+\_\+5}~5
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ativos_8c_a09ee664945c865f63c2d4af54a59d422}{obter\+Maior\+IDAtivos}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos)
+\begin{DoxyCompactList}\small\item\em Função para obter o maior ID da lista de ativos. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ativos_8c_a2b7e5e2861bfe7506efa971821098811}{validar\+\_\+departamento\+\_\+associado}} (\mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}departamentos, int id\+Associado)
+\begin{DoxyCompactList}\small\item\em Função que verifique se o departamento existe e está ativo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_a887fc8972f233fb0c9da981a010d8acf}{criar\+\_\+ativo}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos, \mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}departamentos)
+\begin{DoxyCompactList}\small\item\em Cria um novo ativo no sistema associando-\/o a um novo departamento. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ativos_8c_a5fcfd0b61d0ecc898715599c9757e224}{procurar\+\_\+ativo\+\_\+id}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos, int id\+Procurado)
+\begin{DoxyCompactList}\small\item\em Função que procura p índice do ativo através do seu ID e estado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_aba5c30beb913ec20c8b678d3ba304d2b}{listar\+\_\+ativos}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos)
+\begin{DoxyCompactList}\small\item\em Função que mostra no ecrã as informações de todos os ativos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_ac220049ad9ad0ee29e9a5ca9d6fcb310}{listar\+\_\+ativos\+\_\+por\+\_\+departamento}} (\mbox{\hyperlink{struct_departamentos}{Departamentos}} departamentos, \mbox{\hyperlink{struct_ativos}{Ativos}} ativos)
+\begin{DoxyCompactList}\small\item\em Lista todos os ativos organizados por departamento. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_a8d17956690d5e878e8b79eab65acbac1}{abater\+\_\+ativo}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos)
+\begin{DoxyCompactList}\small\item\em Função para abater os ativos, registando também a data atual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_a9bee4d8091b562f6f0cd2eac8cbfcf2d}{guardar\+Ativos}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos)
+\begin{DoxyCompactList}\small\item\em Guarda a base de dados de ativos num ficheiro binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_a4f73213f1347fdfc54c4660c2829ce8c}{carregar\+Ativos}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos)
+\begin{DoxyCompactList}\small\item\em Carrega a base de dados de ativos através de um ficheiro binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_ace978b66a0b4649d7aac7d808faee138}{pesquisa\+Inteligente\+Ativos}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos, const char \texorpdfstring{$\ast$}{*}termo)
+\begin{DoxyCompactList}\small\item\em Função de pesquisa inteligente de ativos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ativos_8c_a16845a400ebbdd30595800e8cdf83192}{listar\+Com\+Pesquisa\+Inteligente}} (\mbox{\hyperlink{struct_ativos}{Ativos}} ativos)
+\begin{DoxyCompactList}\small\item\em Pede ao utilizador um termo e lista os ativos que começam por esse termo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ficheiro que contém funções de gestão de ativos. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Alves 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{ativos_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ativos_8c_a8d17956690d5e878e8b79eab65acbac1}\index{ativos.c@{ativos.c}!abater\_ativo@{abater\_ativo}}
+\index{abater\_ativo@{abater\_ativo}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{abater\_ativo()}{abater\_ativo()}}
+{\footnotesize\ttfamily \label{ativos_8c_a8d17956690d5e878e8b79eab65acbac1} 
+void abater\+\_\+ativo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Função para abater os ativos, registando também a data atual. 
+
+Abate um ativo (marca como ABATIDO) e regista a data.
+
+Altera o estado de ativo para ABATIDO e utiliza a biblioteca time.\+h para capturar automaticamente o momento da operação. Impede que o faça se os ativos ja estiverem abatidos ou se estiverem a meio de uma manutenção. 
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura que contém a lista de ativos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+o \doxylink{struct_ativo}{Ativo} permanece no programa, só deixará de ser válido em funções como \doxylink{ativos_8h_a5fcfd0b61d0ecc898715599c9757e224}{procurar\+\_\+ativo\+\_\+id()}. 
+\end{DoxyNote}
+\Hypertarget{ativos_8c_a4f73213f1347fdfc54c4660c2829ce8c}\index{ativos.c@{ativos.c}!carregarAtivos@{carregarAtivos}}
+\index{carregarAtivos@{carregarAtivos}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{carregarAtivos()}{carregarAtivos()}}
+{\footnotesize\ttfamily \label{ativos_8c_a4f73213f1347fdfc54c4660c2829ce8c} 
+void carregar\+Ativos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Carrega a base de dados de ativos através de um ficheiro binário. 
+
+Carrega os ativos a partir de um ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura onde os dados lidos serão armazenados. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+se o ficheiro não existir a função é ignorada. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+A função realiza alocações dinâmicas pelo que deve ser garantida a libertação posterior de memória para evitar memory leaks. 
+\end{DoxyWarning}
+\Hypertarget{ativos_8c_a887fc8972f233fb0c9da981a010d8acf}\index{ativos.c@{ativos.c}!criar\_ativo@{criar\_ativo}}
+\index{criar\_ativo@{criar\_ativo}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{criar\_ativo()}{criar\_ativo()}}
+{\footnotesize\ttfamily \label{ativos_8c_a887fc8972f233fb0c9da981a010d8acf} 
+void criar\+\_\+ativo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{, }\item[{\mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}}]{departamentos}{}\end{DoxyParamCaption})}
+
+
+
+Cria um novo ativo no sistema associando-\/o a um novo departamento. 
+
+Cria um novo ativo no sistema e associa-\/o a um departamento.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura que contém a lista de ativos e contador. \\
+\hline
+{\em departamentos} & Apontador para a estrutura que contém a lista de departamentos, contador e departamentos ativos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Usa funções auxiliares como garantir\+\_\+capacidade\+\_\+ativos(), \doxylink{input_8h_ad69f2e2826200047336e4ad4b7c19cbc}{obter\+Int\+Intervalado()} e \doxylink{ativos_8c_a2b7e5e2861bfe7506efa971821098811}{validar\+\_\+departamento\+\_\+associado()} para assegurar a integridade dos dados. 
+\end{DoxyNote}
+\Hypertarget{ativos_8c_a9bee4d8091b562f6f0cd2eac8cbfcf2d}\index{ativos.c@{ativos.c}!guardarAtivos@{guardarAtivos}}
+\index{guardarAtivos@{guardarAtivos}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{guardarAtivos()}{guardarAtivos()}}
+{\footnotesize\ttfamily \label{ativos_8c_a9bee4d8091b562f6f0cd2eac8cbfcf2d} 
+void guardar\+Ativos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Guarda a base de dados de ativos num ficheiro binário. 
+
+Guarda os ativos num ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura que contém as informações que serão escritas no ficheiro. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+O ficheiro é sobrescrito a cada gravação para manter os dados atuais. 
+\end{DoxyNote}
+\Hypertarget{ativos_8c_aba5c30beb913ec20c8b678d3ba304d2b}\index{ativos.c@{ativos.c}!listar\_ativos@{listar\_ativos}}
+\index{listar\_ativos@{listar\_ativos}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{listar\_ativos()}{listar\_ativos()}}
+{\footnotesize\ttfamily \label{ativos_8c_aba5c30beb913ec20c8b678d3ba304d2b} 
+void listar\+\_\+ativos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Função que mostra no ecrã as informações de todos os ativos. 
+
+Lista todos os ativos registados.
+
+Percorre o array de ativos e apresenta informações como o ID, designação, categoria e data de aquisição e ainda data de abate(caso o estado do ativo esteja definido como Abatido). 
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura que contém a lista de ativos e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Usa funções auxiliares para converter enums para textos legiveis para o user. 
+\end{DoxyNote}
+\Hypertarget{ativos_8c_ac220049ad9ad0ee29e9a5ca9d6fcb310}\index{ativos.c@{ativos.c}!listar\_ativos\_por\_departamento@{listar\_ativos\_por\_departamento}}
+\index{listar\_ativos\_por\_departamento@{listar\_ativos\_por\_departamento}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{listar\_ativos\_por\_departamento()}{listar\_ativos\_por\_departamento()}}
+{\footnotesize\ttfamily \label{ativos_8c_ac220049ad9ad0ee29e9a5ca9d6fcb310} 
+void listar\+\_\+ativos\+\_\+por\+\_\+departamento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_departamentos}{Departamentos}}}]{departamentos}{, }\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Lista todos os ativos organizados por departamento. 
+
+Lista os ativos agrupados por departamento.
+
+
+\begin{DoxyParams}{Parameters}
+{\em departamentos} & Estrutura que contém a lista de departamentos. \\
+\hline
+{\em ativos} & Estrutura que contém a lista de ativos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ativos_8c_a16845a400ebbdd30595800e8cdf83192}\index{ativos.c@{ativos.c}!listarComPesquisaInteligente@{listarComPesquisaInteligente}}
+\index{listarComPesquisaInteligente@{listarComPesquisaInteligente}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{listarComPesquisaInteligente()}{listarComPesquisaInteligente()}}
+{\footnotesize\ttfamily \label{ativos_8c_a16845a400ebbdd30595800e8cdf83192} 
+void listar\+Com\+Pesquisa\+Inteligente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Pede ao utilizador um termo e lista os ativos que começam por esse termo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura com a lista de ativos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ativos_8c_a09ee664945c865f63c2d4af54a59d422}\index{ativos.c@{ativos.c}!obterMaiorIDAtivos@{obterMaiorIDAtivos}}
+\index{obterMaiorIDAtivos@{obterMaiorIDAtivos}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{obterMaiorIDAtivos()}{obterMaiorIDAtivos()}}
+{\footnotesize\ttfamily \label{ativos_8c_a09ee664945c865f63c2d4af54a59d422} 
+int obter\+Maior\+IDAtivos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{}\end{DoxyParamCaption})}
+
+
+
+Função para obter o maior ID da lista de ativos. 
+
+Obtém o maior ID existente na lista de ativos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura que contém a lista de ativos e o contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o ID mais alto da lista de ativos. 
+\end{DoxyReturn}
+\Hypertarget{ativos_8c_ace978b66a0b4649d7aac7d808faee138}\index{ativos.c@{ativos.c}!pesquisaInteligenteAtivos@{pesquisaInteligenteAtivos}}
+\index{pesquisaInteligenteAtivos@{pesquisaInteligenteAtivos}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{pesquisaInteligenteAtivos()}{pesquisaInteligenteAtivos()}}
+{\footnotesize\ttfamily \label{ativos_8c_ace978b66a0b4649d7aac7d808faee138} 
+void pesquisa\+Inteligente\+Ativos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}}}]{ativos}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{termo}{}\end{DoxyParamCaption})}
+
+
+
+Função de pesquisa inteligente de ativos. 
+
+Permite ao usuário pesquisar ativos pela designação, mostrando resultados que começam com o termo pesquisado. A pesquisa não é sensível a maiúsculas ou minúsculas. 
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Estrutura que contém a lista de ativos. \\
+\hline
+{\em termo} & String com o termo a pesquisar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ativos_8c_a5fcfd0b61d0ecc898715599c9757e224}\index{ativos.c@{ativos.c}!procurar\_ativo\_id@{procurar\_ativo\_id}}
+\index{procurar\_ativo\_id@{procurar\_ativo\_id}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{procurar\_ativo\_id()}{procurar\_ativo\_id()}}
+{\footnotesize\ttfamily \label{ativos_8c_a5fcfd0b61d0ecc898715599c9757e224} 
+int procurar\+\_\+ativo\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{, }\item[{int}]{id\+Procurado}{}\end{DoxyParamCaption})}
+
+
+
+Função que procura p índice do ativo através do seu ID e estado. 
+
+Procura um ativo através do seu ID.
+
+Percorre o array dos ativos até encontrar um ID correspondente, garantindo que ele está no sistema (estado diferente de ABATIDO). 
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura que contém a lista de ativos e contador. \\
+\hline
+{\em id\+Procurado} & ID que vai ser procurado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o índice associado ao ativo com o mesmo ID no array ou -\/1 caso não encontre. 
+\end{DoxyReturn}
+\Hypertarget{ativos_8c_a2b7e5e2861bfe7506efa971821098811}\index{ativos.c@{ativos.c}!validar\_departamento\_associado@{validar\_departamento\_associado}}
+\index{validar\_departamento\_associado@{validar\_departamento\_associado}!ativos.c@{ativos.c}}
+\doxysubsubsection{\texorpdfstring{validar\_departamento\_associado()}{validar\_departamento\_associado()}}
+{\footnotesize\ttfamily \label{ativos_8c_a2b7e5e2861bfe7506efa971821098811} 
+int validar\+\_\+departamento\+\_\+associado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_departamentos}{Departamentos}} \texorpdfstring{$\ast$}{*}}]{departamentos}{, }\item[{int}]{id\+Associado}{}\end{DoxyParamCaption})}
+
+
+
+Função que verifique se o departamento existe e está ativo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em departamentos} & Apontador para estrutura que contém a lista de departamentos. \\
+\hline
+{\em id\+Associado} & ID que o user quer validar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 caso seja válido, caso contrário 0. 
+\end{DoxyReturn}

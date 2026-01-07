@@ -1,0 +1,396 @@
+\doxysection{src/ordem.c File Reference}
+\hypertarget{ordem_8c}{}\label{ordem_8c}\index{src/ordem.c@{src/ordem.c}}
+
+
+Ficheiro com funções que permitem a gestão das ordens/manutenções.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include "{}../include/ordem.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ativos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/departamentos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/input.\+h"{}}\newline
+{\ttfamily \#include "{}../include/tecnicos.\+h"{}}\newline
+{\ttfamily \#include "{}../include/materiais.\+h"{}}\newline
+{\ttfamily \#include "{}../include/logs.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{ordem_8c_aadc8e4402c580e1c721bb11f5c99faf6}\label{ordem_8c_aadc8e4402c580e1c721bb11f5c99faf6} 
+\#define {\bfseries CRESCIMENTO\+\_\+5}~5
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ordem_8c_a0dbe9be398bfc2c47adbc9ef37247605}{obter\+Maior\+IDOrdens}} (\mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Função que procura o maior ID registado nas ordens. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ordem_8c_a0973c91a78317321583c46694f246aef}{numero\+Manutencoes\+Tecnico}} (\mbox{\hyperlink{struct_tecnico}{Tecnico}} tecnico, \mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Função que conta o número de ordens em execução associadas ao tecnico que analisa. \end{DoxyCompactList}\item 
+\Hypertarget{ordem_8c_ae3899a161427a3910fffa01522f43280}\label{ordem_8c_ae3899a161427a3910fffa01522f43280} 
+float {\bfseries calcular\+Custos} (\mbox{\hyperlink{struct_ordem}{Ordem}} \texorpdfstring{$\ast$}{*}ordem, \mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}materiais)
+\item 
+int \mbox{\hyperlink{ordem_8c_ad82b330127122182ef2c9988a14e089b}{mostrar\+Taxa\+Ocupacao\+Tecnico}} (\mbox{\hyperlink{struct_tecnico}{Tecnico}} \texorpdfstring{$\ast$}{*}tecnico, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Função que mostra a taxa de ocupaão de um determinado tecnico. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a0e4f1d6d1a4e87736b6ad68923978042}{listar\+\_\+tecnicos\+\_\+ativos}} (\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Função que lista apenas os técnicos ativos. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ordem_8c_a98358581165919fb22e4709dd4dc6119}{procurar\+\_\+ordens\+\_\+id}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, int id\+Procurado)
+\begin{DoxyCompactList}\small\item\em Função que procura uma ordem pelo ID. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ordem_8c_ae5a2b115d2c796b13a7706f8339f1cfb}{passar\+\_\+int\+\_\+string\+\_\+estado\+\_\+tecnicos}} (Estado\+Ordem est)
+\begin{DoxyCompactList}\small\item\em Função auxiliar que converte o estado de uma ordem (enum) para uma string legível. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_ae187528848572cf2192aaa5a37e66785}{listar\+Ordens\+Estado}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, Estado\+Ordem estado, \mbox{\hyperlink{struct_materiais}{Materiais}} materiais)
+\begin{DoxyCompactList}\small\item\em Função que lista as ordens/manutenções de acordo com o estado selecionado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_ab6862b584dd079b8e295fa5f88cc516a}{listar\+Ordens\+Prioridade}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, Prioridade prioridade, \mbox{\hyperlink{struct_materiais}{Materiais}} materiais)
+\begin{DoxyCompactList}\small\item\em Função que lista as ordens/manutenções consoante o tipo de prioridade que selecionar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a9478b4e397e5ba572cd4c7bed2cfa63d}{listar\+Ordens\+Tipo}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, Tipo\+Manutencao tipo, \mbox{\hyperlink{struct_materiais}{Materiais}} materiais)
+\begin{DoxyCompactList}\small\item\em Função que lista as ordens consoante o tipo de manutenção. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a496d92d975189d0bf541b8d2676c06ba}{listar\+\_\+ordens\+\_\+pendentes}} (\mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Função que lista todas as ordens pendentes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a62976629d08af6a274e712517082d140}{listar\+\_\+ordens}} (\mbox{\hyperlink{struct_ordens}{Ordens}} ordens)
+\begin{DoxyCompactList}\small\item\em Função que lista todas as ordens registadas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a8fd30c1acc75781812b773e08860e538}{criar\+\_\+ordem}} (\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos, \mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, \mbox{\hyperlink{struct_departamentos}{Departamentos}} departamentos)
+\begin{DoxyCompactList}\small\item\em Função que cria uma nova ordem/manutenção e associa um ativo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_ad2d6dbb23d95e35bd67615d8c4677cfb}{gerir\+\_\+ordem}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens, \mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}tecnicos, \mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}ativos, \mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}materiais)
+\begin{DoxyCompactList}\small\item\em Função que permite gerir uma ordem, dependendo do seu estado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a03a3b423d03d17676a7eaf98d5a8630b}{guardar\+Ordens}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Função que guarda as ordens num ficheiro binário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ordem_8c_a55aaaafc427cabd38238c894a459b9c2}{carregar\+Ordens}} (\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}ordens)
+\begin{DoxyCompactList}\small\item\em Função que carrega as ordens a partir de um ficheiro binário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ficheiro com funções que permitem a gestão das ordens/manutenções. 
+
+\begin{DoxyAuthor}{Author}
+Francisco Alves 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{ordem_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ordem_8c_a55aaaafc427cabd38238c894a459b9c2}\index{ordem.c@{ordem.c}!carregarOrdens@{carregarOrdens}}
+\index{carregarOrdens@{carregarOrdens}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{carregarOrdens()}{carregarOrdens()}}
+{\footnotesize\ttfamily \label{ordem_8c_a55aaaafc427cabd38238c894a459b9c2} 
+void carregar\+Ordens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que carrega as ordens a partir de um ficheiro binário. 
+
+Carrega as ordens a partir de um ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura de ordens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Caso o ficheiro "{}ordens.\+bin"{} não exista, a função termina sem alterar nada. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+A função utiliza malloc para alocar memória para o array de ordens. 
+\end{DoxyWarning}
+\Hypertarget{ordem_8c_a8fd30c1acc75781812b773e08860e538}\index{ordem.c@{ordem.c}!criar\_ordem@{criar\_ordem}}
+\index{criar\_ordem@{criar\_ordem}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{criar\_ordem()}{criar\_ordem()}}
+{\footnotesize\ttfamily \label{ordem_8c_a8fd30c1acc75781812b773e08860e538} 
+void criar\+\_\+ordem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{\mbox{\hyperlink{struct_departamentos}{Departamentos}}}]{departamentos}{}\end{DoxyParamCaption})}
+
+
+
+Função que cria uma nova ordem/manutenção e associa um ativo. 
+
+Cria uma nova ordem/manutenção e associa um ativo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ativos} & Apontador para a estrutura de ativos. \\
+\hline
+{\em ordens} & Apontador para a estrutura de ordens. \\
+\hline
+{\em departamentos} & Estrutura de departamentos (usada para listar ativos por departamento). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+A função valida se existem ativos disponíveis e se o ID introduzido existe e está OPERACIONAL. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Esta função altera o estado do ativo para EM\+\_\+\+MANUTENCAO e decrementa o contador ativos\+Disponiveis. Também incrementa os contadores de ordens. 
+\end{DoxyWarning}
+\Hypertarget{ordem_8c_ad2d6dbb23d95e35bd67615d8c4677cfb}\index{ordem.c@{ordem.c}!gerir\_ordem@{gerir\_ordem}}
+\index{gerir\_ordem@{gerir\_ordem}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{gerir\_ordem()}{gerir\_ordem()}}
+{\footnotesize\ttfamily \label{ordem_8c_ad2d6dbb23d95e35bd67615d8c4677cfb} 
+void gerir\+\_\+ordem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}}]{tecnicos}{, }\item[{\mbox{\hyperlink{struct_ativos}{Ativos}} \texorpdfstring{$\ast$}{*}}]{ativos}{, }\item[{\mbox{\hyperlink{struct_materiais}{Materiais}} \texorpdfstring{$\ast$}{*}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Função que permite gerir uma ordem, dependendo do seu estado. 
+
+Geração/gestão de ordens, consoante o estado (pendente/em execução).
+
+Caso a ordem esteja PENDENTE permite alocar um técnico e adicionar materiais. Caso esteja em EXECUCAO permite cancelar ou concluir a manutenção. 
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura de ordens. \\
+\hline
+{\em tecnicos} & Apontador para a estrutura de técnicos. \\
+\hline
+{\em ativos} & Apontador para a estrutura de ativos. \\
+\hline
+{\em materiais} & Apontador para a estrutura de materiais. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+A função altera estados e contadores em várias estruturas (ordens, ativos e tecnicos). 
+\end{DoxyWarning}
+\Hypertarget{ordem_8c_a03a3b423d03d17676a7eaf98d5a8630b}\index{ordem.c@{ordem.c}!guardarOrdens@{guardarOrdens}}
+\index{guardarOrdens@{guardarOrdens}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{guardarOrdens()}{guardarOrdens()}}
+{\footnotesize\ttfamily \label{ordem_8c_a03a3b423d03d17676a7eaf98d5a8630b} 
+void guardar\+Ordens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que guarda as ordens num ficheiro binário. 
+
+Guarda as ordens num ficheiro binário.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura de ordens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Escreve no ficheiro "{}ordens.\+bin"{}. Caso o ficheiro não possa ser aberto, a função termina. 
+\end{DoxyWarning}
+\Hypertarget{ordem_8c_a62976629d08af6a274e712517082d140}\index{ordem.c@{ordem.c}!listar\_ordens@{listar\_ordens}}
+\index{listar\_ordens@{listar\_ordens}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{listar\_ordens()}{listar\_ordens()}}
+{\footnotesize\ttfamily \label{ordem_8c_a62976629d08af6a274e712517082d140} 
+void listar\+\_\+ordens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que lista todas as ordens registadas. 
+
+Lista todas as ordens/manutenções registadas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Estrutura com o array de ordens e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Se não existirem ordens, a função informa o utilizador e termina. 
+\end{DoxyNote}
+\Hypertarget{ordem_8c_a496d92d975189d0bf541b8d2676c06ba}\index{ordem.c@{ordem.c}!listar\_ordens\_pendentes@{listar\_ordens\_pendentes}}
+\index{listar\_ordens\_pendentes@{listar\_ordens\_pendentes}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{listar\_ordens\_pendentes()}{listar\_ordens\_pendentes()}}
+{\footnotesize\ttfamily \label{ordem_8c_a496d92d975189d0bf541b8d2676c06ba} 
+void listar\+\_\+ordens\+\_\+pendentes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que lista todas as ordens pendentes. 
+
+Lista as ordens/manutenções pendentes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Estrutura com o array de ordens e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+A listagem é feita via printf. Caso não existam ordens pendentes é apresentada uma mensagem. 
+\end{DoxyNote}
+\Hypertarget{ordem_8c_a0e4f1d6d1a4e87736b6ad68923978042}\index{ordem.c@{ordem.c}!listar\_tecnicos\_ativos@{listar\_tecnicos\_ativos}}
+\index{listar\_tecnicos\_ativos@{listar\_tecnicos\_ativos}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{listar\_tecnicos\_ativos()}{listar\_tecnicos\_ativos()}}
+{\footnotesize\ttfamily \label{ordem_8c_a0e4f1d6d1a4e87736b6ad68923978042} 
+void listar\+\_\+tecnicos\+\_\+ativos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnicos}{Tecnicos}} \texorpdfstring{$\ast$}{*}}]{tecnicos}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que lista apenas os técnicos ativos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnicos} & Estrutura com o array de técnicos e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Apenas são listados os técnicos com estado ATIVO1. 
+\end{DoxyNote}
+\Hypertarget{ordem_8c_ae187528848572cf2192aaa5a37e66785}\index{ordem.c@{ordem.c}!listarOrdensEstado@{listarOrdensEstado}}
+\index{listarOrdensEstado@{listarOrdensEstado}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{listarOrdensEstado()}{listarOrdensEstado()}}
+{\footnotesize\ttfamily \label{ordem_8c_ae187528848572cf2192aaa5a37e66785} 
+void listar\+Ordens\+Estado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{Estado\+Ordem}]{estado}{, }\item[{\mbox{\hyperlink{struct_materiais}{Materiais}}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Função que lista as ordens/manutenções de acordo com o estado selecionado. 
+
+Lista as ordens filtrando por estado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para estrutura que contém a lista de ordens e contador. \\
+\hline
+{\em estado} & Estado que deseja listar. \\
+\hline
+{\em materiais} & Estrutura que contém a lista de materiais. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ordem_8c_ab6862b584dd079b8e295fa5f88cc516a}\index{ordem.c@{ordem.c}!listarOrdensPrioridade@{listarOrdensPrioridade}}
+\index{listarOrdensPrioridade@{listarOrdensPrioridade}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{listarOrdensPrioridade()}{listarOrdensPrioridade()}}
+{\footnotesize\ttfamily \label{ordem_8c_ab6862b584dd079b8e295fa5f88cc516a} 
+void listar\+Ordens\+Prioridade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{Prioridade}]{prioridade}{, }\item[{\mbox{\hyperlink{struct_materiais}{Materiais}}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Função que lista as ordens/manutenções consoante o tipo de prioridade que selecionar. 
+
+Lista as ordens filtrando por prioridade.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura que contém a lista de ordens e contador. \\
+\hline
+{\em prioridade} & Tipo de prioridade que deseja listar. \\
+\hline
+{\em materiais} & Estrutura que contém a lista de materiais e contador. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ordem_8c_a9478b4e397e5ba572cd4c7bed2cfa63d}\index{ordem.c@{ordem.c}!listarOrdensTipo@{listarOrdensTipo}}
+\index{listarOrdensTipo@{listarOrdensTipo}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{listarOrdensTipo()}{listarOrdensTipo()}}
+{\footnotesize\ttfamily \label{ordem_8c_a9478b4e397e5ba572cd4c7bed2cfa63d} 
+void listar\+Ordens\+Tipo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{Tipo\+Manutencao}]{tipo}{, }\item[{\mbox{\hyperlink{struct_materiais}{Materiais}}}]{materiais}{}\end{DoxyParamCaption})}
+
+
+
+Função que lista as ordens consoante o tipo de manutenção. 
+
+Lista as ordens filtrando por tipo de manutenção.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura que contém a lista de ordens e contador. \\
+\hline
+{\em tipo} & Tipo de manutenção que deseja listar. \\
+\hline
+{\em materiais} & Estrutura que contém a lista de materiais e contador. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ordem_8c_ad82b330127122182ef2c9988a14e089b}\index{ordem.c@{ordem.c}!mostrarTaxaOcupacaoTecnico@{mostrarTaxaOcupacaoTecnico}}
+\index{mostrarTaxaOcupacaoTecnico@{mostrarTaxaOcupacaoTecnico}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{mostrarTaxaOcupacaoTecnico()}{mostrarTaxaOcupacaoTecnico()}}
+{\footnotesize\ttfamily \label{ordem_8c_ad82b330127122182ef2c9988a14e089b} 
+int mostrar\+Taxa\+Ocupacao\+Tecnico (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnico}{Tecnico}} \texorpdfstring{$\ast$}{*}}]{tecnico}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que mostra a taxa de ocupaão de um determinado tecnico. 
+
+Calcula a taxa de ocupação de um técnico.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnico} & Apontador para a estrutura que contèm o array com as informações a analisar. \\
+\hline
+{\em ordens} & Apontador para a estrutura que contèm a lista de ordens e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Numero inteiro que resulta da divisão das ordens ativas de um determinado tecnico pelo limite maximo, multiplicado por 100. 
+\end{DoxyReturn}
+\Hypertarget{ordem_8c_a0973c91a78317321583c46694f246aef}\index{ordem.c@{ordem.c}!numeroManutencoesTecnico@{numeroManutencoesTecnico}}
+\index{numeroManutencoesTecnico@{numeroManutencoesTecnico}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{numeroManutencoesTecnico()}{numeroManutencoesTecnico()}}
+{\footnotesize\ttfamily \label{ordem_8c_a0973c91a78317321583c46694f246aef} 
+int numero\+Manutencoes\+Tecnico (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tecnico}{Tecnico}}}]{tecnico}{, }\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que conta o número de ordens em execução associadas ao tecnico que analisa. 
+
+Conta quantas manutenções (EXECUCAO) estão associadas a um técnico.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tecnico} & Estrutura do tipo \doxylink{struct_tecnico}{Tecnico} que contem os dados do tecnico a analisar \\
+\hline
+{\em ordens} & Estrutura que contem o array e o contador total de ordens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o numero total de ordens em execução associadas ao tecnico. 
+\end{DoxyReturn}
+\Hypertarget{ordem_8c_a0dbe9be398bfc2c47adbc9ef37247605}\index{ordem.c@{ordem.c}!obterMaiorIDOrdens@{obterMaiorIDOrdens}}
+\index{obterMaiorIDOrdens@{obterMaiorIDOrdens}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{obterMaiorIDOrdens()}{obterMaiorIDOrdens()}}
+{\footnotesize\ttfamily \label{ordem_8c_a0dbe9be398bfc2c47adbc9ef37247605} 
+int obter\+Maior\+IDOrdens (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}}}]{ordens}{}\end{DoxyParamCaption})}
+
+
+
+Função que procura o maior ID registado nas ordens. 
+
+Obtém o maior ID existente na lista de ordens.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Estrutura com o array de ordens e contador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o maior ID registado. Caso não existam ordens devolve 0. 
+\end{DoxyReturn}
+\Hypertarget{ordem_8c_ae5a2b115d2c796b13a7706f8339f1cfb}\index{ordem.c@{ordem.c}!passar\_int\_string\_estado\_tecnicos@{passar\_int\_string\_estado\_tecnicos}}
+\index{passar\_int\_string\_estado\_tecnicos@{passar\_int\_string\_estado\_tecnicos}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{passar\_int\_string\_estado\_tecnicos()}{passar\_int\_string\_estado\_tecnicos()}}
+{\footnotesize\ttfamily \label{ordem_8c_ae5a2b115d2c796b13a7706f8339f1cfb} 
+const char \texorpdfstring{$\ast$}{*} passar\+\_\+int\+\_\+string\+\_\+estado\+\_\+tecnicos (\begin{DoxyParamCaption}\item[{Estado\+Ordem}]{est}{}\end{DoxyParamCaption})}
+
+
+
+Função auxiliar que converte o estado de uma ordem (enum) para uma string legível. 
+
+Converte o estado de uma ordem (enum) para texto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em est} & Estado da ordem. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna uma string literal com a descrição do estado. 
+\end{DoxyReturn}
+\Hypertarget{ordem_8c_a98358581165919fb22e4709dd4dc6119}\index{ordem.c@{ordem.c}!procurar\_ordens\_id@{procurar\_ordens\_id}}
+\index{procurar\_ordens\_id@{procurar\_ordens\_id}!ordem.c@{ordem.c}}
+\doxysubsubsection{\texorpdfstring{procurar\_ordens\_id()}{procurar\_ordens\_id()}}
+{\footnotesize\ttfamily \label{ordem_8c_a98358581165919fb22e4709dd4dc6119} 
+int procurar\+\_\+ordens\+\_\+id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_ordens}{Ordens}} \texorpdfstring{$\ast$}{*}}]{ordens}{, }\item[{int}]{id\+Procurado}{}\end{DoxyParamCaption})}
+
+
+
+Função que procura uma ordem pelo ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ordens} & Apontador para a estrutura \doxylink{struct_ordens}{Ordens}. \\
+\hline
+{\em id\+Procurado} & ID que o utilizador pretende procurar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o índice da ordem no array caso seja encontrada (e esteja PENDENTE/\+EXECUCAO). Caso contrário retorna -\/1. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Esta função só aceita ordens com estado PENDENTE ou EXECUCAO. 
+\end{DoxyNote}
